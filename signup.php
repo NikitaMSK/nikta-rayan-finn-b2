@@ -13,7 +13,7 @@
         <div class="input-container">
             <input type="text" placeholder="Username" required> 
             <input type="email" placeholder="Email Address " required> 
-            <input type="password" placeholder="Creat Password" required>
+            <input type="password" placeholder="Create Password" required>
             <input type="password" placeholder="Re-Enter password" required>     
         <div class="botton">
             <button class="submit" type="submit"><a href="index.php">Sign Up</a></button> 

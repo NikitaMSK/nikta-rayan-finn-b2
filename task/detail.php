@@ -10,7 +10,9 @@ if (!isset($_SESSION['user_id'])) {
 <html lang="nl">
 
 <head>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../css/detail.css">
 </head>
 
 <body>
@@ -46,11 +48,8 @@ if (!isset($_SESSION['user_id'])) {
     //5. Haal de melding op
     $taken = $statement->fetch(PDO::FETCH_ASSOC);
 
-    echo "<pre>";
-    print_r($taken);
-    echo "</pre>";
     ?>
-    <main>
+    <main class="detail">
         <form action="../app/Http/Controllers/takencontroller.php" method="POST">
 
             <div class="form-group">
