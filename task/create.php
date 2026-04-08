@@ -11,6 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 <html lang="nl">
 
 <head>
+    <link rel="icon" type="image/png" href="../favicon.png">
     <title>StoringApp / Meldingen / Nieuw</title>
     <?php require_once __DIR__.'/../header.php'; ?>
 </head>
