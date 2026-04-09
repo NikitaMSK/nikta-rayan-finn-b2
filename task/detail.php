@@ -1,58 +1,59 @@
-<?php 
+<?php
 session_start();
-
+ 
 if (!isset($_SESSION['user_id'])) {
     header("Location: http://pra-b3-2026-feb-finn-rayan-nikita.test");
 }
-
+ 
 ?>
 <!doctype html>
 <html lang="nl">
-
+ 
 <head>
     <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <link rel="stylesheet" href="../css/normailize.css ?>">
+    
+    <link rel="stylesheet" href="../css/detail.css ?>">
 </head>
-
+ 
 <body>
     <?php
-
+ 
     if (!isset($_GET['id'])) {
         echo "Geef in je aanpaslink op de index.php het id van betreffende item mee achter de URL in je a-element om deze pagina werkend te krijgen na invoer van je vijfstappenplan";
         exit;
     }
     ?>
-
-
+ 
+ 
     <h1>Taak aanpassen</h1>
-
+ 
     <?php
     //Haal het id uit de URL:
     $id = $_GET['id'];
-
+ 
     //1. Haal de verbinding erbij
     require_once '../backend/conn.php';
-
+ 
     //2. Query
     $query = "SELECT * FROM taken WHERE id = :id";
-
+ 
     //3. Van query naar statement
     $statement = $conn->prepare($query);
-
+ 
     //4. Voer de query uit
     $statement->execute([
         ":id" => $id
     ]);
-
+ 
     //5. Haal de melding op
     $taken = $statement->fetch(PDO::FETCH_ASSOC);
-
-    echo "<pre>";
-    print_r($taken);
-    echo "</pre>";
+ 
     ?>
-    <main>
+    <main class="detail">
         <form action="../app/Http/Controllers/takencontroller.php" method="POST">
-
+ 
             <div class="form-group">
                 <label>Titel:</label>
                 <input type="text" id="titel" name="titel" value="<?php echo $taken['titel']; ?>">
@@ -92,5 +93,5 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </main>
 </body>
-
+ 
 </html>
