@@ -50,9 +50,7 @@ if (!isset($_SESSION['user_id'])) {
     //5. Haal de melding op
     $taken = $statement->fetch(PDO::FETCH_ASSOC);
 
-    echo "<pre>";
-    print_r($taken);
-    echo "</pre>";
+   
     ?>
     <main class="detail">
         <form action="../app/Http/Controllers/takencontroller.php" method="POST">
