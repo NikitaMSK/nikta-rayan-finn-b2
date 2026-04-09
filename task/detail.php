@@ -10,9 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 <html lang="nl">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="../css/detail.css">
+
 </head>
 
 <body>
