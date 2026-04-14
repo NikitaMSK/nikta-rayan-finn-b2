@@ -27,7 +27,7 @@ if (isset($_SESSION['user_id'])) {
                 <button class="submit" type="submit">Log in</button>
             </div>
             <div class="signup">
-                Don't Have An Account?<a href="signup.php"> sign up</a>
+                Don't Have An Account?<a href="register.php"> sign up</a>
             </div>
         </div>
         <footer>
