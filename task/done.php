@@ -23,7 +23,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="task-brand">
             <div class="logo">Developerland</div>
             <nav>
-                <p>Welkom: <?php echo $_SESSION['username']?></p>
+                <p>Welkom: <?php echo $_SESSION['username'] ?></p>
 
                 <a href="../index.php">Home</a>
                 <a href="create.php" class="btn-action">Nieuwe melding</a>
@@ -36,7 +36,7 @@ if (!isset($_SESSION['user_id'])) {
     <main>
         <?php
         require_once '../backend/conn.php';
-        $query = "SELECT * FROM taken";
+        $query = "SELECT * FROM taken ORDER BY status ASC";
         $statement = $conn->prepare($query);
         $statement->execute();
         $takendone = $statement->fetchAll(PDO::FETCH_ASSOC);
