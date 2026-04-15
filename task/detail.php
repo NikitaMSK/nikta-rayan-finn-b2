@@ -1,79 +1,79 @@
 <?php
 session_start();
- 
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: http://pra-b3-2026-feb-finn-rayan-nikita.test");
 }
- 
+
 ?>
 <!doctype html>
 <html lang="nl">
- 
+
 <head>
     <link rel="icon" type="image/png" href="../favicon.png">
-    
+
     <link rel="stylesheet" href="../css/normailize.css ?>">
-    
+
     <link rel="stylesheet" href="../css/detail.css ?>">
 </head>
- 
+
 <body>
     <?php
- 
+
     if (!isset($_GET['id'])) {
         echo "Geef in je aanpaslink op de index.php het id van betreffende item mee achter de URL in je a-element om deze pagina werkend te krijgen na invoer van je vijfstappenplan";
         exit;
     }
     ?>
- 
- 
-    <h1>Taak aanpassen</h1>
- 
+
+
+    <h1>Edit task</h1>
+
     <?php
     //Haal het id uit de URL:
     $id = $_GET['id'];
- 
+
     //1. Haal de verbinding erbij
     require_once '../backend/conn.php';
- 
+
     //2. Query
     $query = "SELECT * FROM taken WHERE id = :id";
- 
+
     //3. Van query naar statement
     $statement = $conn->prepare($query);
- 
+
     //4. Voer de query uit
     $statement->execute([
         ":id" => $id
     ]);
- 
+
     //5. Haal de melding op
     $taken = $statement->fetch(PDO::FETCH_ASSOC);
 
-   
+
     ?>
     <main class="detail">
         <form action="../app/Http/Controllers/takencontroller.php" method="POST">
- 
+
             <div class="form-group">
                 <label>Titel:</label>
                 <input type="text" id="titel" name="titel" value="<?php echo $taken['titel']; ?>">
             </div>
             <div class="form-group">
-                <label>Beschrijving</label>
+                <label>Description</label>
                 <textarea name="beschrijving" id="beschrijving"><?php echo $taken['beschrijving'] ?></textarea>
             </div>
             <div class="form-group">
-                <label for="afdeling">Afdeling</label>
+                <label for="afdeling">Department</label>
                 <select name="afdeling" id="afdeling">
-                    <option value="">-- Kies een afdeling --</option>
+                    <option value="">-- Choose a department --</option>
                     <option value="IT">IT</option>
                     <option value="HR">HR</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Finance">Finance</option>
-                    <option value="Klantenservice">Klantenservice</option>
-                    <option value="Facilitair">Facilitair</option>
-                    <option value="Onderhoud">Onderhoud</option>
+                    <option value="Klantenservice">Customer Service</option>
+                    <option value="Facilitair">Facilities</option>
+                    <option value="Onderhoud">Maintenance</option>
                     <option value="Management">Management</option>
                 </select>
             </div>
@@ -89,10 +89,10 @@ if (!isset($_SESSION['user_id'])) {
             </div>
             <input type="hidden" name="action" id="action" value="update">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <input type="submit" value="Melding opslaan">
+            <input type="submit" value="Save task">
         </form>
         </div>
     </main>
 </body>
- 
+
 </html>

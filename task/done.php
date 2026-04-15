@@ -26,9 +26,9 @@ if (!isset($_SESSION['user_id'])) {
                 <p>Welkom: <?php echo $_SESSION['username'] ?></p>
 
                 <a href="../index.php">Home</a>
-                <a href="create.php" class="btn-action">Nieuwe melding</a>
+                <a href="create.php" class="btn-action">New Task</a>
                 <a href="../contact.php">Contact</a>
-                <a href="../logout.php">Logout</a>
+                <a href="../logout.php">Log out</a>
             </nav>
         </div>
     </header>
@@ -43,7 +43,7 @@ if (!isset($_SESSION['user_id'])) {
         ?>
 
         <section class="takenlijst-wrap">
-            <h1>Takenlijst</h1>
+            <h1>To-do list</h1>
             <div class="task-grid">
                 <?php foreach ($takendone as $taak) : ?>
                     <article class="task-card">
@@ -54,7 +54,7 @@ if (!isset($_SESSION['user_id'])) {
                         </div>
                         <p class="task-desc"><?php echo htmlspecialchars($taak['beschrijving']); ?></p>
                         <ul class="task-meta">
-                            <li><strong>Afdeling:</strong> <?php echo htmlspecialchars($taak['afdeling']); ?></li>
+                            <li><strong>Department:</strong> <?php echo htmlspecialchars($taak['afdeling']); ?></li>
                             <li><strong>Deadline:</strong> <?php echo htmlspecialchars($taak['deadline']); ?></li>
                             <li><strong>User:</strong> <?php echo htmlspecialchars($taak['user']); ?></li>
                         </ul>

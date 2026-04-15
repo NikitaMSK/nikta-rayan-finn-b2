@@ -15,7 +15,7 @@ if ($action == 'create') {
 
     // Variabelen uit form
     $titel = $_POST['attractie'] ?? '';
-    $afdeling = $_POST['group'] ?? '';
+    $afdeling = $_POST['afdeling'] ?? '';
     $status = isset($_POST['prioriteit']) ? 1 : 0;
     $beschrijving = $_POST['info'] ?? '';
     $deadline_input = $_POST['datetime'] ?? '';
