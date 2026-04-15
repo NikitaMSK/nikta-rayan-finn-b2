@@ -1,52 +1,110 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
- 
-h1 {
-    font-family: sans-serif;
-    font-weight: 900;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    margin-bottom: 5px;
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
-.detail form {
-    display: flex;
-    justify-content: center;
-}
+
 .detail {
     background-image: url('../img/background1.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-
+    background-attachment: fixed;
     min-height: 100vh;
     width: 100%;
-    padding: 40px 20px;
-    box-sizing: border-box;
-
     display: flex;
-    justify-content: center;  /* horizontaal */
-    align-items: center;      /* verticaal */
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
 }
- 
+
 .detail form {
-    background: rgba(255, 255, 255, 0.92);
-    padding: 22px;
-    border-radius: 8px;
-    max-width: 760px;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px; 
     width: 100%;
+    display: flex;
     flex-direction: column;
     gap: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
- 
+
 .detail .form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
- 
+
+
+.detail input[type="text"],
+.detail input[type="date"],
+.detail select,
+.detail textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.detail textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.detail input:focus, 
+.detail select:focus, 
+.detail textarea:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+    background: #ffffff;
+}
+
+
+
+
+.detail input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
 .detail input[type="submit"] {
-    align-self: flex-start;
+    width: 100%;
+    padding: 15px;
+    background-color: #1f4f09;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
 }
- 
+
+.detail input[type="submit"]:hover {
+    background-color: #6df10f;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
