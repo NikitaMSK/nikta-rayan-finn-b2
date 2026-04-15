@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <link rel="icon" type="image/png" href="../favicon.png">
     <title>StoringApp / Meldingen / Nieuw</title>
-    <?php require_once __DIR__.'/../header.php'; ?>
+    <link rel="stylesheet" href="../css/newmeld.css">
 </head>
 
 <body>
@@ -38,12 +38,8 @@ if (!isset($_SESSION['user_id'])) {
                 <option value="B">It</option>
                 <option value="C">Onderhoud</option>
                 <option value="D">Facilitair</option>
-                <option value="E">e</option>
-                <option value="F">f</option>
-        </select>
             </div>
             <div class="form-group">
-                <label for="prioriteit">Done:</label>
                 <input type="checkbox" name="prioriteit" id="prioriteit">
                 <label for="prioriteit">Done or niet done</label>
 
@@ -60,17 +56,19 @@ if (!isset($_SESSION['user_id'])) {
                 <label for="info">Beschrijving:</label>
                 <input type="text" name="info" id="info" class="form-input" placeholder="beschrijving">
             </div>
+               
+            <div class="form-group">
+
+                <input type="submit" value="Verstuur melding" class="sumbit-btn">
+            </div>
+
+        </form>
+    </div>
 
         
 
 
-    </div>
-        <div class="form-group">
 
-            <input type="submit" value="Verstuur melding">
-
-        </form>
-    </div>
 
 </body>
 
